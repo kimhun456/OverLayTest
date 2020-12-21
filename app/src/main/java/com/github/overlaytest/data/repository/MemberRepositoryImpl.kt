@@ -18,7 +18,7 @@ class MemberRepositoryImpl : MemberRepository {
     override fun getDummyMembers(): List<Member> {
         val random = Random(System.currentTimeMillis())
         // range 3 ~ 8
-        val number = random.nextInt(3, 9)
+        val number = random.nextInt(1, 10)
         return memberSequence.take(number).toList()
     }
 

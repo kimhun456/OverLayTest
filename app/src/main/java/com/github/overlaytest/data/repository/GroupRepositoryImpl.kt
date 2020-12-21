@@ -13,7 +13,7 @@ class GroupRepositoryImpl : GroupRepository {
     private fun getDummyGroups(): List<Group> {
         val random = Random(System.currentTimeMillis())
         // range 10 ~ 19
-        val number = random.nextInt(10, 20)
+        val number = random.nextInt(10, 50)
         return groupSequence.take(number).toList()
     }
 

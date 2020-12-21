@@ -25,18 +25,20 @@ class GroupListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupItemViewHolder {
-        val binding: GroupItemBinding = GroupItemBinding.inflate(LayoutInflater.from(context))
+        val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+        val binding: GroupItemBinding = GroupItemBinding.inflate(layoutInflater, parent, false)
         binding.lifecycleOwner = liefCycleOwner
         binding.viewModel = viewModel
-        return GroupItemViewHolder(binding)
+        return GroupItemViewHolder(binding, layoutInflater)
     }
 
     override fun onBindViewHolder(holder: GroupItemViewHolder, position: Int) {
         holder.binding.group = groupList[position]
+        holder.binding.memberList.removeAllViewsInLayout()
+        holder.setMemberList(groupList[position].memberList)
         holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = groupList.size
-
 
 }
