@@ -15,7 +15,7 @@ class GroupListAdapter(
     private val viewModel: MainViewModel
 ) : RecyclerView.Adapter<GroupItemViewHolder>() {
 
-    val groupList: MutableList<Group> = mutableListOf()
+    private val groupList: MutableList<Group> = mutableListOf()
 
     fun submitList(newList: List<Group>) {
         Timber.i("list -> $newList")
